@@ -4,14 +4,14 @@
  *
  * @package Modules\Store
  * @author AMGewka
- * @version 1.8.1
+ * @version 1.8.2
  * @license MIT
  */
 class AAIO_Gateway extends GatewayBase {
     public function __construct() {
         $name = 'AAIO';
         $author = '<a href="https://github.com/AMGewka" target="_blank">AMGewka</a>';
-        $gateway_version = '1.8.1';
+        $gateway_version = '1.8.2';
         $store_version = '1.7.1';
         $settings = ROOT_PATH . '/modules/Store/gateways/AAIO/gateway_settings/settings.php';
 
@@ -45,7 +45,7 @@ class AAIO_Gateway extends GatewayBase {
 
         $queryString = http_build_query($data);
 
-        header('Location: https://aaio.so/merchant/pay?' . $queryString);
+        header('Location: https://aaio.io/merchant/pay?' . $queryString);
         exit;
     }
 
@@ -62,11 +62,11 @@ class AAIO_Gateway extends GatewayBase {
         $apiKey = StoreConfig::get('AAIO.secret2_key');
 
         $allowedIps = array(
-            '1.107.204.74',
+            '91.107.204.74',
         );
 
         if(!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)){
-            die("Недействительный IP!");
+            die("Неверный IP!");
         }
 
         $data = $_POST;
@@ -75,7 +75,7 @@ class AAIO_Gateway extends GatewayBase {
         $sign = hash('sha256', $signString);
 
         if ($sign != $data['sign']) {
-            die("Ошибка подписи!");
+            die("Неверная подпись!");
         }
 
         $paymentId = $data['order_id'];
@@ -84,6 +84,8 @@ class AAIO_Gateway extends GatewayBase {
 
         $payment = new Payment($paymentId, 'transaction');
         $paymentData = [
+            'order_id' => $paymentId,
+            'gateway_id' => $this->getId(),
             'transaction' => $paymentId,
             'amount_cents' => Store::toCents($orderAmount),
             'currency' => $currency,
