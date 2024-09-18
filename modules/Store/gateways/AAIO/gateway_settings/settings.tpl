@@ -8,8 +8,8 @@
             - <b>Cryptocurrencies</b>: <b>Bitcoin</b>, <b>Bitcoin Cash</b>, <b>Ethereum (ETH)</b>, <b>Tether (TRC-20)</b>, <b>Tether (ERC-20)</b>, <b>Tether (BSC)</b>, <b>Tether (Polygon)</b>, <b>Tether (Polygon)</b>, <b>Tether (TON)</b>, <b>Binance Coin (BSC)</b>, <b>Notcoin</b>, <b>TRON</b>, <b>Litecoin</b>, <b>Dogecoin</b>, <b>TON</b> и <b>DASH</b></br></br>
             - To register with <b>AAIO</b> use <a href="https://aaio.so?referral=434b7ffe10d8" target="_blank">this link</a>.</br>
             - The module has been tested and works on store versions 1.7.1 and higher.</br>
-            - <b>Alert URL:</b> https://<Your domain>/store/listener/?gateway=AAIO</br>
-            - <b>Successful payment URL:</b> https://<Your domain>/store/checkout/?do=complete</br>
+            - <b>Alert URL:</b> https://YOUR_DOMAIN/store/listener/?gateway=AAIO</br>
+            - <b>Successful payment URL:</b> https://YOUR_DOMAIN/store/checkout/?do=complete</br>
             - <b>Failed payment URL:</b> Your choice :)
         </div>
     </div>
