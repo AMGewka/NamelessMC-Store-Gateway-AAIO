@@ -13,7 +13,7 @@ class AAIO_Gateway extends GatewayBase {
         $author = '<a href="https://github.com/AMGewka" target="_blank">AMGewka</a>';
         $gateway_version = '1.8.4';
         $store_version = '1.7.1';
-        $settings = ROOT_PATH . '/modules/Store/gateways/AAIO/gateway_settings/settings.php';
+        $settings = ROOT_PATH . '/modules/Store/gateways/Aaio/gateway_settings/settings.php';
 
         parent::__construct($name, $author, $gateway_version, $store_version, $settings);
     }
@@ -25,7 +25,7 @@ class AAIO_Gateway extends GatewayBase {
         $apiKey = StoreConfig::get('AAIO.secret1_key');
 
         if ($shopId == null || empty($shopId)) {
-            $this->addError('The administration has not completed the configuration of this gateway!');
+            $this->addError('Administration have not completed the configuration of this gateway!');
             return;
         }
 
@@ -66,7 +66,7 @@ class AAIO_Gateway extends GatewayBase {
         );
 
         if(!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)){
-            die("Invalid IP!");
+            die("bad ip!");
         }
 
         $data = $_POST;
@@ -75,7 +75,7 @@ class AAIO_Gateway extends GatewayBase {
         $sign = hash('sha256', $signString);
 
         if ($sign != $data['sign']) {
-            die("Invalid signature!");
+            die("bad sign!");
         }
 
         $paymentId = $data['order_id'];
