@@ -9,6 +9,25 @@
  *  Store module
  */
 require_once(ROOT_PATH . '/modules/Store/classes/StoreConfig.php');
+$aaio_language = new Language(ROOT_PATH . '/modules/Store/gateways/AAIO/language', LANGUAGE);
+$page_title = $aaio_language->get('gateways', 'aaio');
+
+$smarty->assign([
+    'SHOP_ID' => $aaio_language->get('shopid'),
+    'SHOP_KEY1' => $aaio_language->get('key1'),
+    'SHOP_KEY2' => $aaio_language->get('key2'),
+    'ENABLE_GATEWAY' => $aaio_language->get('enablegateway'),
+    'GATEWAY_NAME' => $aaio_language->get('gatewayname'),
+    'BANK_CARD' => $aaio_language->get('bankcard'),
+    'ONLINE_PAYMENTS' => $aaio_language->get('onlinepay'),
+    'ONLINE_WALLET' => $aaio_language->get('onlinewal'),
+    'CRYPTOCURRENCIES' => $aaio_language->get('crypto'),
+    'GATEWAY_LINK' => $aaio_language->get('gatewaylink'),
+    'GATEWAY_TESTED' => $aaio_language->get('gatewaytest'),
+    'ALERT_URL' => $aaio_language->get('alerturl'),
+    'SUCCESS_URL' => $aaio_language->get('sucurl'),
+    'FAILED_URL' => $aaio_language->get('failurl')
+]);
 
 if (Input::exists()) {
     if (Token::check()) {

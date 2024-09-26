@@ -4,14 +4,14 @@
  *
  * @package Modules\Store
  * @author AMGewka
- * @version 1.8.3
+ * @version 1.8.4
  * @license MIT
  */
 class AAIO_Gateway extends GatewayBase {
     public function __construct() {
         $name = 'AAIO';
         $author = '<a href="https://github.com/AMGewka" target="_blank">AMGewka</a>';
-        $gateway_version = '1.8.3';
+        $gateway_version = '1.8.4';
         $store_version = '1.7.1';
         $settings = ROOT_PATH . '/modules/Store/gateways/AAIO/gateway_settings/settings.php';
 
@@ -25,7 +25,7 @@ class AAIO_Gateway extends GatewayBase {
         $apiKey = StoreConfig::get('AAIO.secret1_key');
 
         if ($shopId == null || empty($shopId)) {
-            $this->addError('The administration has not completed setting up this gateway!');
+            $this->addError('The administration has not completed the configuration of this gateway!');
             return;
         }
 
@@ -66,7 +66,7 @@ class AAIO_Gateway extends GatewayBase {
         );
 
         if(!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)){
-            die("Invalid IP!");
+            die("Неверный IP!");
         }
 
         $data = $_POST;
