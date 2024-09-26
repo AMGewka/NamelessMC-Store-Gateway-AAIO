@@ -45,7 +45,7 @@ class AAIO_Gateway extends GatewayBase {
 
         $queryString = http_build_query($data);
 
-        header('Location: https://aaio.io/merchant/pay?' . $queryString);
+        header('Location: https://aaio.so/merchant/pay?' . $queryString);
         exit;
     }
 
@@ -66,7 +66,7 @@ class AAIO_Gateway extends GatewayBase {
         );
 
         if(!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)){
-            die("Неверный IP!");
+            die("Invalid IP!");
         }
 
         $data = $_POST;
