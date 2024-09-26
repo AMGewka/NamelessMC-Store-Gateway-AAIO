@@ -25,7 +25,7 @@ class AAIO_Gateway extends GatewayBase {
         $apiKey = StoreConfig::get('AAIO.secret1_key');
 
         if ($shopId == null || empty($shopId)) {
-            $this->addError('Администрация не завершила настройку данного шлюза!');
+            $this->addError('The administration has not completed setting up this gateway!');
             return;
         }
 
@@ -66,7 +66,7 @@ class AAIO_Gateway extends GatewayBase {
         );
 
         if(!in_array($_SERVER['REMOTE_ADDR'], $allowedIps)){
-            die("Неверный IP!");
+            die("Invalid IP!");
         }
 
         $data = $_POST;
@@ -75,7 +75,7 @@ class AAIO_Gateway extends GatewayBase {
         $sign = hash('sha256', $signString);
 
         if ($sign != $data['sign']) {
-            die("Неверная подпись!");
+            die("Invalid signature!");
         }
 
         $paymentId = $data['order_id'];
