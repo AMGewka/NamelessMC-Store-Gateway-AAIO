@@ -4,14 +4,14 @@
  *
  * @package Modules\Store
  * @author AMGewka
- * @version 1.8.4
+ * @version 1.8.5
  * @license MIT
  */
 class AAIO_Gateway extends GatewayBase {
     public function __construct() {
         $name = 'AAIO';
         $author = '<a href="https://github.com/AMGewka" target="_blank">AMGewka</a>';
-        $gateway_version = '1.8.4';
+        $gateway_version = '1.8.5';
         $store_version = '1.7.1';
         $settings = ROOT_PATH . '/modules/Store/gateways/AAIO/gateway_settings/settings.php';
 
