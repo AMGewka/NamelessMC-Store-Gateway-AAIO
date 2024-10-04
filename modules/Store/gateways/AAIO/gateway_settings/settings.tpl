@@ -17,7 +17,7 @@
     <br />
 
 
-<form action="" method="post"><div class="form-group"><label for="inputAAIOId">{$SHOP_ID}</label>
+<form action="" method="post"><div class="form-group"><label for="inputAAIOShopId">{$SHOP_ID}</label>
 <input class="form-control" type="text" id="inputAAIOShopId" name="shopid_key" value="{$SHOP_ID_VALUE}" placeholder="{$SHOP_ID}">
 </div>
 

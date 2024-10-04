@@ -9,8 +9,13 @@
  *  Store module
  */
 require_once(ROOT_PATH . '/modules/Store/classes/StoreConfig.php');
+require_once(ROOT_PATH . '/modules/Store/config.php');
+
+if (isset($store_conf) && is_array($store_conf)) {
+    $GLOBALS['store_config'] = $store_conf;
+}
+
 $aaio_language = new Language(ROOT_PATH . '/modules/Store/gateways/AAIO/language', LANGUAGE);
-$page_title = $aaio_language->get('gateways', 'aaio');
 
 $smarty->assign([
     'SHOP_ID' => $aaio_language->get('shopid'),
