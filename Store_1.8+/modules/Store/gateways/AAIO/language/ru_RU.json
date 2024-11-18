@@ -1,0 +1,18 @@
+{
+    "shopid": "ID Магазина",
+    "key1": "Секретный ключ №1",
+    "key2": "Секретный ключ №2",
+    "enablegateway": "Включить способ оплаты",
+    "gatewayname": " Платежная система <a href=\"https://aaio.so?referral=434b7ffe10d8\" target=\"_blank\">AAIO</a>",
+    "bankcard": "<b>Банковские карты</b>: <b>Карты РФ</b>, <b>Карты Украины</b> и <b>Карты Узбекистана</b>",
+    "onlinepay": "<b>Электронные платежи</b>: <b>Оплата скинами (Steam)</b> и <b>СБП</b>",
+    "onlinewal": "<b>Электронные кошельки</b>: <b>Perfect Money</b> и <b>Volet</b>",
+    "crypto": "<b>Криптовалюты</b>: <b>Bitcoin</b>, <b>Bitcoin Cash</b>, <b>Ethereum (ETH)</b>, <b>Tether (TRC-20)</b>, <b>Tether (ERC-20)</b>, <b>Tether (BSC)</b>, <b>Tether (Polygon)</b>, <b>Tether (TON)</b>, <b>Binance Coin (BSC)</b>, <b>Notcoin</b>, <b>Hamster Kombat</b>, <b>TRON</b>, <b>Litecoin</b>, <b>Dogecoin</b>, <b>TON</b> и <b>DASH</b>",
+    "gatewaylink": "Для регистрации в <b>AAIO</b> используйте <a href=\"https://aaio.so?referral=434b7ffe10d8\" target=\"_blank\">эту ссылку</a>.",
+    "alerturl": "<b>URL Оповещения:</b> ",
+    "sucurl": "<b>URL успешной оплаты:</b> ",
+    "warinfo1": " Данные для настройки кассы",
+    "warinfo2": " Конфигурация кассы",
+    "adminemail": "Email админа сайта (Если покупки будет делать не авторизированный пользователь, то будет использоваться указанный email для создания транзакции)",
+    "failurl": "<b>URL неудачной оплаты:</b> На ваш выбор :)"
+}
