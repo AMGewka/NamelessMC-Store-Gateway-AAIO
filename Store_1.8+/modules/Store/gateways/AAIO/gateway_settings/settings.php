@@ -61,7 +61,7 @@ $smarty->assign(
 		'SUCCESS_URL' => $aaio_language->get('sucurl'),
 		'PINGBACK_URL' => rtrim(URL::getSelfURL(), '/') . URL::build('/store/listener', 'gateway=AAIO'),
 		'SUCC_URL' => rtrim(URL::getSelfURL(), '/') . URL::build('/store/checkout', 'do=complete'),
-		'FAILED_URL' => $aaio_language->get('failurl'),
+		'ACC_CUR' => $aaio_language->get('acc_currency'),
 		'WARINFO1' => $aaio_language->get('warinfo1'),
 		'WARINFO2' => $aaio_language->get('warinfo2')
 	]

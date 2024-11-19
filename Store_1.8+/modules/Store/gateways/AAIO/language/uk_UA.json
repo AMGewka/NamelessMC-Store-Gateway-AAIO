@@ -4,15 +4,15 @@
     "key2": "Секретний ключ №2",
     "enablegateway": "Включити спосіб оплати",
     "gatewayname": " Платіжна система <a href=\"https://aaio.so?referral=434b7ffe10d8\" target=\"_blank\">AAIO</a>",
-    "bankcard": "<b>Банківські карти</b>: <b>Карти Росії</b>, <b>Карти України</b>, <b>Карти Узбекистану</b> та <b>Карти Азербайджану</b>",
+    "bankcard": "<b>Банківські карти</b>: <b>Карти Росії</b>, <b>Карти України</b>, <b>Карти Узбекистану</b> та <b>Карти Азербайджану </b>",
     "onlinepay": "<b>Електронні платежі</b>: <b>Оплата скінами (Steam)</b> та <b>СБП</b>",
     "onlinewal": "<b>Електронні гаманці</b>: <b>Perfect Money</b> та <b>Volet</b>",
     "crypto": "<b>Криптовалюти</b>: <b>Bitcoin</b>, <b>Bitcoin Cash</b>, <b>Ethereum (ETH)</b>, <b>Tether (TRC-20), Tether (ERC-20), Tether (BSC), Tether (Polygon), <b> Tether (TON), Binance Coin (BSC), Notcoin, Hamster Kombat, TRON, <b>Litecoin</b>, <b>Dogecoin</b>, <b>TON</b> та <b>DASH</b>",
     "gatewaylink": "Для реєстрації в <b>AAIO</b> використовуйте <a href=\"https://aaio.so?referral=434b7ffe10d8\" target=\"_blank\">ця посилання</a> .",
     "alerturl": "<b>URL Оповіщення:</b> ",
     "sucurl": "<b>URL успішної оплати:</b> ",
-    "warinfo1": " Дані для налаштування каси",
+    "acc_currency": "<b>Підтримувані валюти:</b> <code>RUB</code>, <code>UAH</code>, <code>EUR</code> та <code>USD</code> ",
+    "warinfo1": " Дані для налаштування каси та модуля Store",
     "warinfo2": "Конфігурація каси",
-    "adminemail": "Email адміну сайту (Якщо покупки буде робити не авторизований користувач, то використовуватиметься вказаний email для створення транзакції)",
-    "failurl": "<b>URL невдалої оплати:</b> На ваш вибір :)"
+    "adminemail": "Email адміну сайту (Якщо покупки буде робити не авторизований користувач, то використовуватиметься вказаний email для створення транзакції)"
 }

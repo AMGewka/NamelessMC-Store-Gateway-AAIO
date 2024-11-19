@@ -15,7 +15,7 @@
             <h5><i class="icon fa-duotone fa-solid fa-file"></i>{$WARINFO1}</h5>
             {$ALERT_URL} <code>{$PINGBACK_URL}</code></br>
             {$SUCCESS_URL} <code>{$SUCC_URL}</code></br>
-            {$MORUNE_URL} {$MORUNE_URL_TEMP}</br>
+            {$ACC_CUR}</br>
         </div>
     </div>
     <br />
