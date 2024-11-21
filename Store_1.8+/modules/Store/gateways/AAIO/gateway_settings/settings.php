@@ -14,11 +14,12 @@ $page_title = $aaio_language->get('gateways', 'aaio');
 
 if (Input::exists()) {
 	if (Token::check()) {
-		if (isset($_POST['shopid_key']) && isset($_POST['secret1_key']) && isset($_POST['secret2_key']) && isset($_POST['admin_email']) && strlen($_POST['shopid_key']) && strlen($_POST['secret1_key']) && strlen($_POST['secret2_key']) && strlen($_POST['admin_email'])) {
+		if (isset($_POST['shopid_key']) && isset($_POST['secret1_key']) && isset($_POST['secret2_key']) && isset($_POST['admin_email']) && isset($_POST['acc_api']) && strlen($_POST['shopid_key']) && strlen($_POST['secret1_key']) && strlen($_POST['secret2_key']) && strlen($_POST['admin_email']) && strlen($_POST['acc_api'])) {
 			StoreConfig::set('AAIO.shopid_key', $_POST['shopid_key']);
 			StoreConfig::set('AAIO.secret1_key', $_POST['secret1_key']);
 			StoreConfig::set('AAIO.secret2_key', $_POST['secret2_key']);
 			StoreConfig::set('AAIO.admin_email', $_POST['admin_email']);
+			StoreConfig::set('AAIO.acc_api', $_POST['acc_api']);
 		}
 
         // Is this gateway enabled
@@ -37,6 +38,50 @@ if (Input::exists()) {
 	} else $errors = [$language->get('general', 'invalid_token')];
 }
 
+$api_key = StoreConfig::get('AAIO.acc_api');
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, 'https://aaio.so/api/balance');
+curl_setopt(
+	$ch,
+	CURLOPT_HTTPHEADER,
+	[
+		'Accept: application/json',
+		'X-Api-Key: ' . $api_key
+	]
+);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+
+$result = curl_exec($ch);
+$http_code = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+
+if (curl_errno($ch)) {
+	die('Connect error:' . curl_error($ch));
+}
+curl_close($ch);
+
+if (!in_array($http_code, [200, 400, 401])) {
+	die('Response code: ' . $http_code);
+}
+
+$decoded = json_decode($result, true);
+
+if (json_last_error() !== JSON_ERROR_NONE) {
+	die('Failed to parse response');
+}
+
+if ($decoded['type'] == 'success') {
+	$aaio_balance = $decoded['balance'];
+	$aaio_referral = $decoded['referral'];
+	$aaio_hold = $decoded['hold'];
+} else {
+	echo ("false");
+}
+
 $smarty->assign(
 	[
 		'SETTINGS_TEMPLATE' => ROOT_PATH . '/modules/Store/gateways/AAIO/gateway_settings/settings.tpl',
@@ -49,6 +94,14 @@ $smarty->assign(
 		'SHOP_ID' => $aaio_language->get('shopid'),
 		'SHOP_KEY1' => $aaio_language->get('key1'),
 		'SHOP_KEY2' => $aaio_language->get('key2'),
+		'ACC_BAL' => $decoded['balance'] ?? 0,
+		'ACC_REFBAL' => $decoded['referral'] ?? 0,
+		'ACC_HOLDBAL' => $decoded['hold'] ?? 0,
+		'ACC_API' => ((isset($_POST['acc_api']) && $_POST['acc_api']) ? Output::getClean(Input::get('acc_api')) : StoreConfig::get('AAIO.acc_api')),
+		'AC_BAL' => $aaio_language->get('acc_balance'),
+		'AC_RBAL' => $aaio_language->get('acc_refbalance'),
+		'AC_HBAL' => $aaio_language->get('acc_holdbalance'),
+		'AC_API' => $aaio_language->get('acc_apikey'),
 		'ENABLE_GATEWAY' => $aaio_language->get('enablegateway'),
 		'GATEWAY_NAME' => $aaio_language->get('gatewayname'),
 		'BANK_CARD' => $aaio_language->get('bankcard'),
@@ -61,6 +114,7 @@ $smarty->assign(
 		'SUCCESS_URL' => $aaio_language->get('sucurl'),
 		'PINGBACK_URL' => rtrim(URL::getSelfURL(), '/') . URL::build('/store/listener', 'gateway=AAIO'),
 		'SUCC_URL' => rtrim(URL::getSelfURL(), '/') . URL::build('/store/checkout', 'do=complete'),
+		'FAILED_URL' => $aaio_language->get('failurl'),
 		'ACC_CUR' => $aaio_language->get('acc_currency'),
 		'WARINFO1' => $aaio_language->get('warinfo1'),
 		'WARINFO2' => $aaio_language->get('warinfo2')

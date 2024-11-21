@@ -6,7 +6,10 @@
             {$ONLINE_PAYMENTS}</br>
             {$ONLINE_WALLET}</br>
             {$CRYPTOCURRENCIES}</br></br>
-            {$GATEWAY_LINK}</br>
+            {$GATEWAY_LINK}</br></br>
+            {$AC_BAL} {$ACC_BAL}</br>
+            {$AC_RBAL} {$ACC_REFBAL}</br>
+            {$AC_HBAL} {$ACC_HOLDBAL}</br>
         </div>
     </div>
     <br />
@@ -22,6 +25,10 @@
     <div class="card shadow border-left-warning">
         <div class="card-body">
             <h5><i class="icon fa-duotone fa-solid fa-wrench"></i>{$WARINFO2}</h5>
+<form action="" method="post"><div class="form-group"><label for="inputAAIOaccapi">{$AC_API}</label>
+<input class="form-control" type="text" id="inputAAIOaccapi" name="acc_api" value="{$ACC_API}" placeholder="{$AC_API}">
+</div>
+
 <form action="" method="post"><div class="form-group"><label for="inputAAIOShopId">{$SHOP_ID}</label>
 <input class="form-control" type="text" id="inputAAIOShopId" name="shopid_key" value="{$SHOP_ID_VALUE}" placeholder="{$SHOP_ID}">
 </div>

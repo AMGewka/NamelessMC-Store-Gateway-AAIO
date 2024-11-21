@@ -11,8 +11,12 @@
     "gatewaylink": "Для регистрации в <b>AAIO</b> используйте <a href=\"https://aaio.so?referral=434b7ffe10d8\" target=\"_blank\">эту ссылку</a>.",
     "alerturl": "<b>URL Оповещения:</b> ",
     "sucurl": "<b>URL успешной оплаты:</b> ",
-    "acc_currency": "<b>Поддерживаемые валюты:</b> <code>RUB</code>, <code>UAH</code>, <code>EUR</code> и <code>USD</code>",
-    "warinfo1": " Данные для настройки кассы и модуля Store",
+    "warinfo1": " Данные для настройки кассы",
     "warinfo2": " Конфигурация кассы",
-    "adminemail": "Email админа сайта (Если покупки будет делать не авторизированный пользователь, то будет использоваться указанный email для создания транзакции)"
+    "adminemail": "Email админа сайта (Если покупки будет делать не авторизированный пользователь, то будет использоваться указанный email для создания транзакции)",
+    "acc_currency": "<b>Поддерживаемые валюты:</b> <code>RUB</code>, <code>UAH</code>, <code>EUR</code> и <code>USD</code>",
+    "acc_balance": "<b>Баланс:</b>",
+    "acc_refbalance": "<b>Реферальный баланс:</b>",
+    "acc_holdbalance": "<b>Замороженный баланс:</b>",
+    "acc_apikey": "API ключ аккаунта AAIO"
 }
